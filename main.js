@@ -8,7 +8,7 @@ let PathName = inputArr[1];
 let utility = {
     media: ["mp4", "mkv", "mp3", "png", "jpg", "jpeg", "svg"],
     archives: ['zip', '7z', 'rar', 'tar', 'gz', 'ar', 'iso', "xz"],
-    documents: ['docx', 'doc', 'pdf', 'xlsx', 'xls', 'odt', 'ods', 'odp', 'odg', 'odf', 'txt', 'ps', 'tex'],
+    documents: ['docx', 'doc', 'pdf', 'xlsx', 'xls', 'odt', 'ods', 'odp', 'odg', 'odf', 'txt', 'ps', 'tex', 'pptx'],
     app: ['exe', 'dmg', 'pkg', "deb"]
 }
 switch(command){
@@ -34,19 +34,19 @@ function organize(PathName){
         console.log("Directory not found!");
         return;
     }else{
-        let  destPath = path.join(PathName,"organized_files");
-        try {
-            if (!fs.existsSync(destPath)) {
-              fs.mkdirSync(destPath);
-            }
-          } catch (err) {
-            console.error(err);
-          }
-        // fs.mkdirSync(destPath);
-        organizeHelper(PathName,destPath);
+        // let  destPath = PathName
+        // try {
+        //     if (!fs.existsSync(destPath)) {
+        //       fs.mkdirSync(destPath);
+        //     }
+        //   } catch (err) {
+        //     console.error(err);
+        //   }
+        // // fs.mkdirSync(destPath);
+        organizeHelper(PathName);
     }
 }
-function organizeHelper(src,dest){
+function organizeHelper(src){
     let childNames = fs.readdirSync(src);
     for(let i =0;i<childNames.length;i++){
         let childPath = path.join(src,childNames[i]);
@@ -54,7 +54,7 @@ function organizeHelper(src,dest){
         if(isFile){
             let category = getCategory(childNames[i]);
             console.log(category);
-            sendFile(childPath,dest,category);
+            sendFile(childPath,src,category);
         }
         
     }
