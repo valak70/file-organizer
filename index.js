@@ -1,13 +1,15 @@
-#!/usr/bin/env bash
-let inputArr  = process.argv.slice(2);
+#!/usr/bin/env node
+
+let inputArr = process.argv.slice(2);
 const { tree } = require("./commands/tree");
 const { organize } = require("./commands/organize");
 const { help } = require("./commands/help");
-// console.log(inputArr);
+
 let command = inputArr[0];
 let PathName = inputArr[1];
-switch(command){
-    case "tree" :
+
+switch (command) {
+    case "tree":
         tree(PathName);
         break;
     case "organize":

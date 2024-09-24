@@ -1,14 +1,14 @@
 {
-  "name": "fs-organaizer",
-  "version": "1.0.0",
+  "name": "fs-valak",
+  "version": "0.0.2",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "bin": {
-    "slave" : "main.js"
+    "fs-valak" : "index.js"
   }
 }

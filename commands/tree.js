@@ -1,6 +1,8 @@
 let fs = require("fs");
 let path = require ("path");
 function tree(PathName){
+    console.log(PathName);
+    
     if (PathName == undefined) {
 
         treeHelper(process.cwd(), "");
